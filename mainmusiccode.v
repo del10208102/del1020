@@ -14,7 +14,7 @@ reg     [7:0]      cnt1    ;      //每个音符持续时间的计数器
 wire               add_cnt1;
 wire               end_cnt1;
 
-reg     [8:0]      cnt2    ;     //共2^n个音节
+	reg     [10:0]      cnt2    ;     //共2^n个音节
 wire               add_cnt2;
 wire               end_cnt2;
 
