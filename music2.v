@@ -128,7 +128,7 @@
 				125:pre_set<=M51;
 				126:pre_set<=M51;
 				127:pre_set<=M51;
-        128:pre_set<=M6;
+                                128:pre_set<=M6;
 				129:pre_set<=M7;
 				130:pre_set<=H1;
 				131:pre_set<=H3;
