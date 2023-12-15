@@ -14,26 +14,26 @@ reg     [7:0]      cnt1    ;      //每个音符持续时间的计数器
 wire               add_cnt1;
 wire               end_cnt1;
 
-	reg     [10:0]      cnt2    ;     //共2^n个音节
+reg     [10:0]      cnt2    ;     //共2^n个音节
 wire               add_cnt2;
 wire               end_cnt2;
 
 reg     [16:0]     pre_set ;    //存放每个音节的频率在系统中的时钟个数
 
 //每个音符对应的系统周期计数
-localparam      M1=95602,           //1
-                M11=90253,          //1#
-	        M2=85178,           //2
-		M21=80386,          //2#
-	        M3=75872,           //3
-	        M4=71633,           //4
-		M41=67568,          //4#
-	        M5=63775,           //5
-		M51=60168,          //5#
-	        M6=56818,           //6
-		M61=53648,          //6#
-	        M7=50607,           //7
-            //high key
+localparam              M1=95602,           //1
+                        M11=90253,          //1#
+	                M2=85178,           //2
+			M21=80386,          //2#
+	                M3=75872,           //3
+	                M4=71633,           //4
+			M41=67568,          //4#
+	                M5=63775,           //5
+			M51=60168,          //5#
+	                M6=56818,           //6
+			M61=53648,          //6#
+	                M7=50607,           //7
+                        //high key
 			H1=47801,           //1
 			H11=45086,           //1#
 			H2=42553,           //2
@@ -46,12 +46,11 @@ localparam      M1=95602,           //1
 			H6=28409,          //6
 			H61=26810,          //6#
 			H7=25303,          //7
-	//更高音（常更新）
-	HH1=23883,
-	HH2=22543,
 
+			//更高音
+	                HH1=23883,
+	                HH2=22543,
 
-	
 			//low key
 			D5=127551,          //5
 			D51=120482,         //5#
@@ -106,7 +105,7 @@ always @(posedge clk or negedge rst_n)begin
     end
 end
 assign add_cnt2=end_cnt1;
-assign end_cnt2=add_cnt2 && cnt2==256-1;//改
+assign end_cnt2=add_cnt2 && cnt2==1024-1;//改
 
 //存放歌曲的简谱
 always @(posedge clk or negedge rst_n)begin
@@ -115,7 +114,7 @@ always @(posedge clk or negedge rst_n)begin
     end
     else begin
         case(cnt2)
-          //code here
+            //music code here
         endcase
     end
 end
